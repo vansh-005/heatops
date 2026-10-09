@@ -2,7 +2,7 @@
 
 ## Design intent
 
-Build a field-operations product that reads clearly in a video. The first screen should explain the issue without narration. Use a warm off-white canvas, dark navy text, amber for screening alerts, red for overdue/remaining flagged work, and teal for acknowledged actions. Avoid a generic dark AI chat dashboard.
+Build a field-operations product with a clear, readable interface. The first screen should explain the issue without assistance. Use a warm off-white canvas, dark navy text, amber for screening alerts, red for overdue/remaining flagged work, and teal for acknowledged actions. Avoid a generic dark AI chat dashboard.
 
 Suggested tokens: canvas `#F7F5EF`, panel `#FFFFFF`, ink `#172B35`, muted `#56656D`, border `#D9DFDD`, accent `#147D78`, warning `#965600`, danger `#B83232`. Verify actual contrast of final combinations. Use locally available system sans-serif; optional Inter only if bundled. Body 16px, section title 22px, hero metrics 36–44px. Space in 8px increments; cards 12px radius, restrained shadows.
 
@@ -46,13 +46,13 @@ No “100% safe”, “Workers protected”, “Lives saved”, or “AI-certifi
 
 Large site name, scenario/live badge, revision, relevant schedule, and task due times. One task per card; 44px minimum touch targets. Receipt action is `I've read this schedule`. Readiness check actions are `Report ready` and `Report blocked`, with a short optional note. Label readiness as “Reported by supervisor” and record time.
 
-Include an English/Hindi label toggle only after P0 works. Use reviewed static UI translations; translated model prose is optional. Initial proposed button translations: “मैंने यह समय-सारणी पढ़ ली है”, “तैयार है”, “तैयारी में बाधा है”. Have a fluent speaker review final phrasing before recording.
+Include an English/Hindi label toggle only after P0 works. Use reviewed static UI translations; translated model prose is optional. Initial proposed button translations: “मैंने यह समय-सारणी पढ़ ली है”, “तैयार है”, “तैयारी में बाधा है”. Have a fluent speaker review final phrasing before release.
 
 ## Demo controls
 
 Presenter-only, collapsed panel: `New synthetic session`, `Advance demo clock 15 minutes`, `Copy run ID`. Never place clock controls on live sessions or public replay. An unmistakable toast and badge show clock advancement. Fixture reset creates a new session; it does not erase audit history.
 
-Replay can play saved events in sequence, but label it continuously as a saved recording of execution. Replay animations must not pretend to call Bedrock.
+Replay can play saved events in sequence, but label it continuously as a saved execution trace. Replay animations must not pretend to call Bedrock.
 
 ## Required states
 
@@ -80,4 +80,5 @@ Use React Router and a query client with bounded polling. Keep API DTOs distinct
 
 ## Screen acceptance
 
-At recording resolution, the viewer can read the source badge, both metric values, changed gate time, residual exposure, and task acknowledgment without zoom cuts. At 390px there is no horizontal scrolling outside the intentionally scrollable schedule, and task actions remain reachable.
+At 1920×1080, the user can read the source badge, both metric values, changed gate time, residual exposure, and task acknowledgment without zooming. At 390px there is no horizontal scrolling outside the intentionally scrollable schedule, and task actions remain reachable.
+

@@ -1,22 +1,14 @@
 # Submission preparation
 
-## Event checklist
+## Repository and writeup checklist
 
-Official rules require a public repository, a YouTube demo under three minutes (public or unlisted), and a short writeup. AWS usage must appear in the video. AI coding tools must be disclosed and reused material credited. Confirm the exact cutoff in the event form, and keep a signed-out link check. See sources.md for official pages.
-
-## Deliverables
-
-- [ ] Correct track and project name.
-- [ ] New project history reflects actual work during the event; no backdated commits or fabricated AI logs.
-- [ ] Repository contains runnable setup, architecture, env examples, license/attribution, and known limitations.
-- [ ] Secret scan and repository review completed before making it public.
-- [ ] Video exported, under 3:00, captions legible, synthetic/replay labels retained.
-- [ ] AWS proof and matching application run appear in the recording.
-- [ ] Uploaded YouTube link opens signed out.
-- [ ] Writeup claims only implemented, verified features.
-- [ ] Deployed URL or reviewer replay tested signed out, if included.
-- [ ] Registration/profile details and final submission form checked.
-- [ ] Submission confirmation saved after user-authorized submission.
+- [ ] Correct project name and track.
+- [ ] Repository contains runnable setup, architecture, environment examples, attribution, and known limitations.
+- [ ] Secret scan and repository review completed.
+- [ ] Writeup describes only implemented, verified features.
+- [ ] Actual AI coding tools and reused material are credited.
+- [ ] Deployed URL and public read-only replay tested, if included.
+- [ ] Development history and verification records are accurate.
 
 ## Short description draft
 
@@ -35,3 +27,4 @@ In our synthetic 45-worker scenario, changing a gate-opening constraint forces t
 “We used [actual tools] for [actual activities]. We reviewed the generated implementation and verified [actual checks]. Runtime planning uses [tested Strands version] and [actual Bedrock model]. Synthetic fixture inputs and assumptions are documented.”
 
 Replace placeholders truthfully. Don't list tests or model calls that did not run. Distinguish coding assistants from the runtime agent. Optional blog should explain a real obstacle and its resolution, not invented development drama.
+

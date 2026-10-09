@@ -53,19 +53,20 @@ Crew B remains exposed and requires a supervisor decision to defer or otherwise 
 
 ## MVP scope and explicit deferrals
 
-P0: one site, synthetic and live adapters, one bounded agent, candidate schedules, revision comparison, approval, assignment cards, receipt acknowledgment, readiness reporting, overdue escalation, audit, AWS deployment, video.
+P0: one site, synthetic and live adapters, one bounded agent, candidate schedules, revision comparison, approval, assignment cards, receipt acknowledgment, readiness reporting, overdue escalation, audit, AWS deployment.
 
-P1 only after a rough recording succeeds: historical replay with provenance, optional email to configured test recipients, two more sample sites, exports, richer constraint input.
+P1 after the core workflow passes verification: historical replay with provenance, optional email to configured test recipients, two more sample sites, exports, richer constraint input.
 
 Out of scope: city dispatch, tanker procurement, official alert issuance, wearables, injury prediction, a new forecasting model, vector search, broad document ingestion, automated shutdowns, automatic payroll adjustments, and production worker-health records.
 
 ## Acceptance and validation targets
 
-- A new viewer understands user → issue → revised plan → acknowledgment within three minutes.
+- A supervisor can navigate assessment → revised plan → approval → acknowledgment without assistance.
 - All demo metrics match the fixture checker and server-side responses.
 - The live agent visibly calls typed tools; failures are displayed honestly.
 - Approval of a stale revision fails; refreshing does not lose the run.
 - An overdue check appears within two scheduler ticks in live mode.
-- Three consecutive complete rehearsals succeed before final recording. This is a build gate, not a claim already achieved.
+- Three consecutive complete end-to-end runs succeed before declaring the application ready. This is an acceptance gate, not a claim already achieved.
 
-After the hackathon, interview supervisors about shift authority, pay, transport, early access, resource ownership, and what evidence constitutes readiness. None of these customer assumptions have been validated yet.
+For product validation, interview supervisors about shift authority, pay, transport, early access, resource ownership, and what evidence constitutes readiness. None of these customer assumptions have been validated yet.
+

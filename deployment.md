@@ -2,13 +2,12 @@
 
 This is a target workflow. Package scripts and CDK stacks do not exist yet; implement them under tasks.md before running the proposed commands.
 
-## First-hour checks
+## Prerequisite checks
 
 1. Confirm AWS CLI identity with `aws sts get-caller-identity` and region/profile selection. Do not paste full account details into a public log.
 2. Verify actual current credits and account limits; prior Recollect credits/concurrency are history, not current guarantees.
 3. In the selected Bedrock region, verify available tool-capable model access with a one-tool request and result. Record model ID/profile ID, SDK version, and regional policy. If using a cross-region inference profile, check required destination-region permissions.
-4. Verify exact submission cutoff from the event's submission form and enter it in decisions.md. Keep the internal recording buffer.
-5. Confirm DNS/HTTPS hosting route, Cognito callback/logout URLs, and budget notifications.
+4. Confirm DNS/HTTPS hosting route, Cognito callback/logout URLs, and budget notifications.
 
 ## Target local commands to implement
 
@@ -40,7 +39,7 @@ Deploy one clearly named HeatOps stack. Lambda API gets only domain-table and qu
 
 Use on-demand DynamoDB; no VPC attachment or NAT. Queue settings from architecture.md; alarms for DLQ >0, worker errors, and maintenance lag. CORS allow only local development origins and the deployed frontend. Cognito JWT authorizer verifies intended audience and issuer.
 
-Amplify: provision via the chosen supported path and document it in the resulting repository. A manual build upload is acceptable for the weekend if repository integration is unavailable; do not claim automatic deployment until configured. Record the actual HTTPS URL only after opening it successfully.
+Amplify: provision via the chosen supported path and document it in the resulting repository. A manual build upload is acceptable if repository integration is unavailable; do not claim automatic deployment until configured. Record the actual HTTPS URL only after opening it successfully.
 
 ## Live weather adapter
 
@@ -48,9 +47,9 @@ Open-Meteo forecast endpoint: `https://api.open-meteo.com/v1/forecast`. Configur
 
 Cache a bounded per-site/date snapshot. Mode never changes on error. A failed live call returns an error, not the synthetic fixture. Display attribution/link and check current provider terms before broader use.
 
-## Recording day operations
+## Application smoke run
 
-Seed a fresh session, confirm the model and maintenance are healthy, sign in both operations and supervisor tabs, verify source badges, and run the full rehearsal once. Capture a real Bedrock execution before editing. Create a sanitized immutable replay from successful evidence; do not expose access tokens, raw prompts with personal data, or full cloud account IDs.
+Seed a fresh session, confirm the model and maintenance are healthy, sign in both operations and supervisor tabs, verify source badges, and run the full workflow once. Verify a real Bedrock execution and retain its sanitized results. Create a sanitized immutable replay from successful evidence; do not expose access tokens, raw prompts with personal data, or full cloud account IDs.
 
 ## Recovery
 
@@ -65,3 +64,4 @@ Auth failure: inspect callback/origin/issuer/audience. Never disable authorizati
 ## Teardown
 
 Export desired demo evidence first. Disable scheduled triggers and new run creation, drain or purge only this project's queues if no work is needed, then destroy the named stack and hosting resources according to their retention policies. Verify leftover logs, hosted builds, and any retained table. Keep public submission artifacts available for judging as needed. Do not touch Recollect or unrelated resources.
+

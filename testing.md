@@ -32,18 +32,19 @@ These checks are for the application to be built. Only the standalone planning-f
 9. Simulate Bedrock denial/throttle/timeout and weather outage. Show truthful failures. No generated success from frontend timers.
 10. Put prompt-injection text into site notes. Agent cannot approve, alter policy, cross tenants, or call unrestricted tools.
 
-## One complete AWS rehearsal
+## One complete AWS workflow
 
 Start fresh synthetic session → run agent → inspect 135 to 45 proposal → change gate to 07:00 → rerun → inspect 135 to 60 and residual hours → approve current revision → inspect four tasks → supervisor acknowledges schedule → reports one resource ready → leave another pending → advance demo clock → verify overdue action → refresh both views → show matching CloudWatch run ID.
 
 Also test maintenance with a real near-future live deadline once; the accelerated scenario alone is not proof of scheduled execution.
 
-## Visual and recording gate
+## Visual acceptance gate
 
 At 1920×1080 and 390px mobile verify source badges, units, timezone, metrics, residual exposure, editable gate, approval limitations, acknowledged vs ready states, keyboard access, and loading/error states. No clipped important text or color-only meaning. Test replay in a signed-out browser.
 
-Record three consecutive successful rehearsals against the deployed system. Capture the first successful one as backup. Stop extending the test matrix once these risks are resolved; use remaining time for recording and submission.
+Verify three consecutive successful end-to-end runs against the deployed system. Retain their sanitized run IDs and results. Stop extending the test matrix once the documented risks are resolved.
 
 ## Evidence log template
 
 For each release check record: check ID, date/time, commit if available, run/session ID, expected, actual, pass/fail, evidence location, and limitation. Do not prefill passes. Screenshots should hide credentials/account details.
+

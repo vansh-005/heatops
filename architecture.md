@@ -17,7 +17,7 @@
 
 Default application region: ap-south-1. `BEDROCK_REGION` and `BEDROCK_MODEL_ID` are explicit deployment configuration, verified with a real tool-use invocation in T00. Prefer a supported tool-capable Amazon Nova model if available in the account; otherwise use an enabled Bedrock model or profile. Do not assume an exact model identifier, access, or cross-region permission. Pin the working selection after the smoke test.
 
-Use Python for the agent and API to share Pydantic domain contracts and scheduling functions. Vansh's Java strength is useful for design, but introducing a second backend language would slow this two-day build.
+Use Python for the agent and API to share Pydantic domain contracts and scheduling functions. Vansh's Java strength is useful for design, but introducing a second backend language would add integration overhead.
 
 ## Topology
 
@@ -38,7 +38,7 @@ flowchart TD
   Q --> DLQ["Dead-letter queue"]
 ```
 
-CloudWatch receives structured logs from each Lambda. The diagram deliberately omits optional email, maps, AgentCore, Step Functions, RAG, and VPC networking.
+CloudWatch receives structured logs from each Lambda. Optional email, maps, AgentCore, Step Functions, RAG, and VPC networking are outside the MVP architecture.
 
 ## Request and job lifecycle
 
@@ -67,7 +67,7 @@ CloudWatch receives structured logs from each Lambda. The diagram deliberately o
 
 All `/sites`, `/runs`, `/plans`, `/tasks`, and mutating `/demo/sessions` routes require Cognito JWTs. Server maps Cognito subject to the organization and roles; it never trusts an organization ID supplied by the browser. Seed an operations lead and a supervisor with access to the fixture site.
 
-Public route: `GET /demo/replays/{id}` returns only a sanitized, explicitly published immutable replay. It cannot invoke Bedrock, reset data, change time, acknowledge tasks, or send messages. Reviewer landing screen offers this replay without sign-in; the video demonstrates authenticated execution.
+Public route: `GET /demo/replays/{id}` returns only a sanitized, explicitly published immutable replay. It cannot invoke Bedrock, reset data, change time, acknowledge tasks, or send messages. Reviewer landing screen offers this replay without sign-in; authenticated users can execute the live workflow.
 
 `POST /demo/sessions/{id}/advance-clock` is allowed only for an owned synthetic session. It calls the same overdue evaluator with an injected clock. Live-mode sessions use server UTC and reject that operation. Keep scenario and real execution timestamps distinct.
 
@@ -79,8 +79,9 @@ No health records or real worker identifiers in the demo. Store crews and synthe
 
 Use a seven-day log retention setting, task TTLs appropriate for ephemeral demo sessions, and cleanup commands. TTL is eventual deletion, never a deadline evaluator or authorization check.
 
-Set an AWS Budget alert and application invocation limits. Budget alerts do not enforce a hard stop. Limit two agent runs per minute per user, one active run per site/session, and 100 agent runs per demo organization per day initially. Report the actual measured cost after rehearsals; no invented cost estimate or credit balance.
+Set an AWS Budget alert and application invocation limits. Budget alerts do not enforce a hard stop. Limit two agent runs per minute per user, one active run per site/session, and 100 agent runs per demo organization per day initially. Report the actual measured cost after verified runs; no invented cost estimate or credit balance.
 
 ## Why this is enough
 
 The async queue addresses model latency; DynamoDB stores the source of truth; transactional approval prevents publishing stale work; one timer handles recovery and overdue checks. The MVP does not need distributed multi-agent orchestration, a vector store, Kubernetes, or a long-running workflow engine.
+

@@ -2,28 +2,24 @@
 
 ## Mission and priority
 
-Build HeatOps: a heat-response planning application for construction-site supervisors. Your deliverable is the working application and its demo-ready evidence. A separate video agent owns Remotion, animations, editing, captions, and rendering the 2:50 video. Optimize app implementation order for that story: working end-to-end flow, correct behavior, clear UI, then optional features.
+Build HeatOps: a heat-response planning application for construction-site supervisors. Your deliverable is the working application, AWS deployment configuration, tests, and technical documentation. Prioritize correct end-to-end behavior, reliable workflows, clear UI, and then optional features.
 
 This file belongs at the repository root alongside `AGENTS.md` and the planning documents. Read `AGENTS.md` at the start of the session; it is the shared coding-agent policy. This file adds Claude-specific working context without replacing the domain contracts. `agent.md` describes the application's runtime AI agent, not you.
 
 At the time this pack was created, the application was not implemented or deployed. Inspect the repository and current task log before reporting progress; do not mistake this specification for working code.
 
-## Parallel ownership
-
-You own T00–T13 and the repository/writeup portion of T15. T14 and video editing/rendering belong to the separate video session and Vansh. Prepare stable seeded sessions, readable screens, verified facts, and capture instructions/evidence from `video-production/handoff.md`. Do not build a video project inside the application or edit the video agent's workspace.
-
 ## First-session workflow
 
-1. Read `AGENTS.md`, `README.md`, `demo.md`, and `tasks.md`.
+1. Read `AGENTS.md`, `README.md`, `product.md`, and `tasks.md`.
 2. Read `product.md`, `contracts.md`, `architecture.md`, `agent.md`, and `frontend.md` before implementing their respective areas.
 3. Inspect existing files and git status. Preserve user changes and any work from previous sessions.
-4. Start with T00: verify the actual AWS account/region, available Bedrock tool-use model, and exact event submission cutoff. Record verified choices in `decisions.md`.
+4. Start with T00: verify the actual AWS account/region and available Bedrock tool-use model. Record verified choices in `decisions.md`.
 5. Run `python3 scripts/verify_fixture.py` from the project root. This checks planning arithmetic only.
 6. Implement the next unfinished P0 task in dependency order. For each milestone, verify the relevant acceptance criteria, update `tasks.md`, and report the evidence.
 
 If cloud access is blocked, state the exact blocker and continue useful local domain/UI work that does not depend on it. Do not mark cloud tasks complete or silently substitute a different model provider.
 
-## The demo to protect
+## Core application workflow
 
 The fictional Delhi site has 45 workers. HeatOps inspects weather and constraints and proposes moving a crew earlier. The supervisor changes gate opening from 06:00 to 07:00. The agent reruns its tools, presents a revised schedule, and exposes the remaining flagged work. The supervisor approves coordination tasks, acknowledges the schedule on mobile, and reports preparation separately. A missed preparation check becomes overdue.
 
@@ -61,11 +57,11 @@ Follow the repository layout in `AGENTS.md`. Keep pure domain code separate from
 - Missing or stale weather is insufficient data, not zero risk. Never replace a failed live forecast with unlabeled fixture data.
 - Enforce agent time/tool budgets outside the prompt. Record tool receipts, not hidden chain-of-thought or invented reasoning traces.
 
-## UI and demo discipline
+## UI behavior
 
 Follow `frontend.md`: warm off-white canvas, navy text, clear amber/red alerts, teal acknowledgments. The schedule timeline and constraint change are the main visuals. Do not replace the product with a chat window.
 
-Implement real queued/running/stale/failed/overdue states. No timer-generated fake progress. Keep remaining exposure prominent beside the improvement metric. Capture a real Bedrock-backed run as soon as it works; the recording buffer takes priority over stretch features.
+Implement real queued/running/stale/failed/overdue states. No timer-generated fake progress. Keep remaining exposure prominent beside the improvement metric. Verify a real Bedrock-backed run and retain its sanitized run ID and results before extending scope.
 
 ## Commands and environment
 
@@ -82,3 +78,4 @@ Use `testing.md` for risk-based checks: fixture arithmetic, constraint feasibili
 Update checkboxes only after verification. Keep a short actual progress log in `tasks.md`: completed IDs, checks run, evidence/run IDs, failures, and the next task. Record important design changes in `decisions.md` and update affected specs together. Never fabricate development history, prompts, test results, users, or metrics.
 
 Before a context reset or session end, leave enough state in those files for the next session to resume without guessing. Final milestone reports should distinguish implemented, verified locally, verified on AWS, and still pending.
+

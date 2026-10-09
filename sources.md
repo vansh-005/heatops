@@ -1,11 +1,11 @@
 # Sources and evidence boundaries
 
-Checked 9 October 2026. URLs are primary references; SDK and account configuration must still be verified during implementation.
+URLs are primary references; SDK and account configuration must still be verified during implementation.
 
 ## Event
 
-- Environmental Hacks: https://www.wemakedevs.org/aws/env — Heat and Water track, event dates, judging themes, recorded demo emphasis. The fetched page did not settle the exact submission cutoff time.
-- Tour rules: https://www.wemakedevs.org/aws/rules — submission format, project provenance, AI-tool disclosure, and showing AWS in the video. See submission.md for the short actionable checklist.
+- Environmental Hacks: https://www.wemakedevs.org/aws/env — Heat and Water track and event context.
+- Tour rules: https://www.wemakedevs.org/aws/rules — project provenance, AI-tool disclosure, and attribution requirements.
 
 ## Agent and AWS
 
@@ -32,3 +32,4 @@ These US occupational resources inform the prototype's limitations; they are not
 ## What is our own design or illustrative data
 
 The name, scenario, UI, 40°C apparent-temperature screening trigger, 30-minute gap, gate times, worker counts, task schedule, due times, region preference, run limits, and architecture are proposed design choices. They are not sourced safety guidance or measured customer outcomes. Arithmetic is reproducible with the included fixture checker.
+
